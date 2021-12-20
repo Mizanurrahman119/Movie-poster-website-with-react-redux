@@ -2,6 +2,9 @@
 
 It is movies and shows base website. It's creat with react redux. It have a data stor a session store and local store.
 
+## live link:
+https://movies-and-shows-app.web.app/
+
 ## working it:
 1. Go to the website and see the some movies or shows poster.
 2. click on the poster and see the movies or shows details.
