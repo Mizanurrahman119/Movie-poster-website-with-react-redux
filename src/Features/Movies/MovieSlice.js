@@ -3,18 +3,16 @@ import { APIKey } from "../../Common/Apis/MovieApiKey";
 import MovieApi from '../../Common/Apis/MovieApi';
 
 //movie container
-export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async () => {
-    const movieText = "Harry";
-    const response = await MovieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=movie`
+export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async (term) => {
+    const response = await MovieApi.get(`?apiKey=${APIKey}&s=${term}&type=movie`
     );
     return response.data;
   }
 );
 
 //shows container
-export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async () => {
-    const seriesText = "friends";
-    const response = await MovieApi.get(`?apiKey=${APIKey}&s=${seriesText}&type=series`
+export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async (term) => {
+    const response = await MovieApi.get(`?apiKey=${APIKey}&s=${term}&type=series`
     );
     return response.data;
   }

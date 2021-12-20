@@ -10,8 +10,5 @@
 }
 
 .movie-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
-    color: $font-primary;
+    color: rgb(238, 42, 42);
 }
