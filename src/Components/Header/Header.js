@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAsyncMovies, fetchAsyncShows } from '../../Features/Movies/MovieSlice';
+import useAuth from '../../hooks/useAuth';
 import userLogo from "../../Images/user__logo.png";
+// import useFirebase from '../../hooks/useFirebase';
 import "./Header.scss"
 
 const Header = () => {
+    // const {user, logOut} = useFirebase();
+    const {user, logOut} = useAuth();
+
     const [term, setTerm] = useState("");
     const dispatch = useDispatch();
     const submitHandler = (e) => {
@@ -19,7 +24,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className="logo">
-                <Link to="/">Movie App</Link>
+                <Link to="/"><i class="fas fa-film"></i>Movie App</Link>
             </div>
 
             <div className='search-bar'>
@@ -28,9 +33,15 @@ const Header = () => {
                     <button type='submit'><i className='fa  fa-search'></i></button>
                 </form>
             </div>
-            <div className="user-image">
+            {/* <div className="user-image">
                 <img src={userLogo} alt="user" />
-            </div>
+            </div> */}
+            { user.email && <span style={{color:'white'}}><i class="fas fa-user-circle"></i>{user.displayName}</span>}
+            {
+                user.email ?
+                <button className='logout-btn' onClick={logOut}>Log out</button>
+                :
+                <Link to="/login">Login</Link>}
         </div>
     );
 };

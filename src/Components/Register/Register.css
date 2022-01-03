@@ -1,0 +1,10 @@
+.register-form{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: white;
+    margin: 20px 0 10px 0;
+}
+.login-link{
+    color:aqua
+}
