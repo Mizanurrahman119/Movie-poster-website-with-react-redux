@@ -1,7 +1,7 @@
 export const Settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 6,
     slidesToScroll: 2,
     responsive: [
